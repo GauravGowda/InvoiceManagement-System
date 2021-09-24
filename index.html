@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <script src="./json/index.json"></script>
+    <script src="./js/index.js"></script>
+</head>
+
+<body onload="showOnLoad()">
+    <nav>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="./images/Group 20399.svg" id="demo" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="./images/logo.svg" id="demo" alt="">
+            </div>
+        </div>
+    </nav>
+
+    <nav>
+        <div class="second-div">
+            <h3>Invoice List</h3>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="inner">
+            <div>
+                <button id="btnAdd" class="btn-add" type="submit"><img src="./images/Path 18189.svg" id="demo" alt="">
+                    Add</button>
+                <button id="btnEdit" class="btn-edit" type="submit"><img src="./images/Path 18191.svg" id="demo" alt="">
+                    Edit</button>
+                <button id="btnDelete" class="btn-delete" type="submit"><img src="./images/Path 18189-1.svg" id="demo"
+                        alt="">Delete</button>
+                <div class="search">
+                    <form action="">
+                        <input type="text" placeholder="Search..">
+                        <button class="button" type="submit"><img src="./images/search-24px (3).svg" id="demo"
+                                alt=""></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table id="main-table">
+                
+            </table>
+        </div>
+
+        <div class="left-slide">
+            < </div>
+                <div class="right-slide"> > </div>
+        </div>
+
+        <div id="addModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="closeBtn">&times;</span>
+                    <h2>Add Invoice</h2>
+                    <hr size="1" width="100%" oneclick="add()" color="#1A262F">
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div class="column">
+                                <div id="name-input">
+                                    <label for="">Customer Name <span class="required">*</span></label>
+                                    <input type="text" placeholder="">
+                                </div>
+                                <br>
+                                <div id="cust-no">
+                                    <label for="">Customer No. <span class="required">*</span></label>
+                                    <input type="text" id="cust-no" placeholder="">
+                                </div>
+                                <br>
+                                <div id="invoice-no">
+                                    <label for="">Invoice No. <span class="required">*</span></label>
+                                    <input type="text"  placeholder="">
+                                </div>
+                                <br>
+                                <div id="invoice-amt">
+                                    <label for="">Invoice Amount <span class="required">*</span></label>
+                                    <input type="text" placeholder="">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div id="due">
+                                    <label for="">Due Date <span class="required">*</span></label>
+                                    <input type="date" placeholder="">
+                                </div>
+                                <br>
+                                <div id="due">
+                                    <label for="">Notes</label>
+                                    <input style="height: 130px; width: 190px;" type="text" name="" id="">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr size="1" width="100%" color="#1A262F">
+                    <div class="modal-footer">
+                        <p id="cancel">Cancel</p>
+                        <div class="modal-footer-btn">
+                            <button class="clear-btn" type="reset">Clear</button>
+                            <button class="add-btn" type="submit">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="editModal" class="modal-edit">
+            <div class="edit-modal-content">
+                <div class="modal-header">
+                    <span id="closeBtnEdit" class="closeBtn">&times;</span>
+                    <h2>Edit Invoice</h2>
+                    <hr size="1" width="100%" color="#1A262F">
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="row">
+                            <div>
+                                <label for="">Invoice Amount</label>
+                                <input type="text" placeholder="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div>
+                                <label for="">Notes</label>
+                                <input class="note" type="text" name="" id="">
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr size="1" width="100%" color="#1A262F">
+                    <div class="modal-footer">
+                        <p id="cancel-edit">Cancel</p>
+                        <div class="modal-footer-btn">
+                            <button class="clear-btn" type="reset">Reset</button>
+                            <button class="add-btn" type="submit">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="deleteModal" class="modal-delete">
+            <div class="delete-modal-content">
+                <div class="modal-header-delete">
+                    <span id="closeBtnDelete" class="closeBtn">&times;</span>
+                    <h2>Delete Invoice</h2>
+                    <hr size="1" width="100%" color="#1A262F">
+                </div>
+                <div class="modal-body">
+                    <p>You'll loose your record(s) after this action. We cannot revover them once you delete </p>
+                    <p style="margin-bottom: 20px;">Are you sure you want to <span style="color: red;">pamanenetly
+                            delete</span> them? </p>
+
+                    <hr size="1" width="100%" color="#1A262F">
+                    <div class="modal-footer-delete">
+                        <div class="modal-footer-btn">
+                            <button class="clear-btn" type="reset">Cancel</button>
+                            <button class="add-btn" type="submit">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/main.js"></script>
+        <script src="js/edit-modal.js"></script>
+        <script src="js/delete-modal.js"></script>
+</body>
+
+</html>

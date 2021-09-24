@@ -1,0 +1,2 @@
+data = '[{"CustomerName":"John","Customer#":"2523","Invoice#":"72345","InvoiceAmount":"1723","DueDate":"3","PredictedDate":"2","Notes":"Lorem"}]'
+headers = '["CustomerName","Customer#","Invoice#","InvoiceAmount","DueDate","PredictedDate","Notes"]'
